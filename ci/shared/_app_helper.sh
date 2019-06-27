@@ -11,7 +11,6 @@ VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
 PYTHONVERS="\
     python2.6 \
     python2.7 \
-    python3.2 \
     python3.3 \
     python3.4 \
     python3.5 \
