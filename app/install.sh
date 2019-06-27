@@ -31,5 +31,12 @@ for PYVER in ${PYTHONVERS} ; do
   if [ "${PYVER}" != "python2.7" -a "${PYVER}" != "python3.6" ] ; then
       "${PYVER}" get-pip.py
   fi
-  "${PYVER}" -m pip install pipenv
+  case "${PYVER}" in
+  python26)
+    pip2.6 install pipenv
+    ;;
+  *)
+    "${PYVER}" -m pip install pipenv
+    ;;
+  esac
 done
