@@ -16,7 +16,7 @@ apt-get install -qq -y ${PYTHONVERS}
 apt-get install -qq -y python-pip python3-pip
 
 apt-get install -qq -y curl
-apt-get install -qq -y libffi
+apt-get install -qq -y libffi-dev
 
 
 for PYVER in ${PYTHONVERS} ; do
