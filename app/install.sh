@@ -13,7 +13,6 @@ add-apt-repository ppa:deadsnakes
 add-apt-repository ppa:pypy/ppa
 apt-get update
 apt-get install -qq -y ${PYTHONVERS}
-apt-get install -qq -y python-pip python3-pip
 
 apt-get install -qq -y curl
 apt-get install -qq -y libffi-dev
@@ -30,15 +29,10 @@ for PYVER in ${PYTHONVERS} ; do
     curl --fail https://bootstrap.pypa.io/get-pip.py -o get-pip.py
   fi
   SHORTPY=
-  if [ "${PYVER}" != "python2.7" -a "${PYVER}" != "python3.6" ] ; then
-      "${PYVER}" get-pip.py
-  fi
+  "${PYVER}" get-pip.py
   case "${PYVER}" in
   python2.6)
     pip2.6 install pipenv
-    ;;
-  python3.6)
-    pip3.6 install pipenv
     ;;
   *)
     "${PYVER}" -m pip install pipenv
