@@ -19,6 +19,7 @@ apt-get install -qq -y curl
 
 
 for PYVER in ${PYTHONVERS} ; do
+  apt-get install -qq -y ${PYVER}-dev
   if [[ "${PYVER}" =~ python[0-9][.][0-9] ]] ; then
     SHORTPY="$(echo "${PYVER}" | sed s/python//)"
     if ! curl --fail "https://bootstrap.pypa.io/${SHORTPY}/get-pip.py" -o get-pip.py ; then
