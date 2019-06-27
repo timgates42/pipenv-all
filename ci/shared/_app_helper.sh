@@ -9,9 +9,6 @@ VERSION_MINOR=$(date -u +'%m')
 VERSION_PATCH=$(date -u +'%d%H%M%S')
 VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
 PYTHONVERS="\
-    python2.3 \
-    python2.4 \
-    python2.5 \
     python2.6 \
     python2.7 \
     python3.1 \
