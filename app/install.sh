@@ -32,7 +32,7 @@ for PYVER in ${PYTHONVERS} ; do
       "${PYVER}" get-pip.py
   fi
   case "${PYVER}" in
-  python26)
+  python2.6)
     pip2.6 install pipenv
     ;;
   *)
