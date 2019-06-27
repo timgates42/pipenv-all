@@ -37,6 +37,9 @@ for PYVER in ${PYTHONVERS} ; do
   python2.6)
     pip2.6 install pipenv
     ;;
+  python3.6)
+    pip3.6 install pipenv
+    ;;
   *)
     "${PYVER}" -m pip install pipenv
     ;;
