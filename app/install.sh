@@ -16,6 +16,7 @@ apt-get install -qq -y ${PYTHONVERS}
 
 apt-get install -qq -y curl
 apt-get install -qq -y libffi-dev
+apt-get install -qq -y build-essential
 
 
 for PYVER in ${PYTHONVERS} ; do
