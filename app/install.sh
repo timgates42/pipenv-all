@@ -27,6 +27,7 @@ add-apt-repository ppa:deadsnakes
 add-apt-repository ppa:pypy/ppa
 apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends curl
+DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends libffi-dev
 for PYVER in ${NODISTRO_PYTHONVERS} ; do
   DEBIAN_FRONTEND=noninteractive apt-get install -qq -y \
       --no-install-recommends python${PYVER} python${PYVER}-dev
