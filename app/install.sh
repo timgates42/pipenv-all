@@ -18,7 +18,7 @@ python2.7 -m pip install pipenv
 python3.6 -m pip install --upgrade pip
 python3.6 -m pip install pipenv
 
-NODISTRO_PYTHONVERS=$( echo "${PYTHONVERS}" | 's/python2[.]7/ /;s/python3[.]6//' )
+NODISTRO_PYTHONVERS=$( echo "${PYTHONVERS}" | sed 's/python2[.]7/ /;s/python3[.]6//' )
 # Now try deadsnakes
 apt-get install -qq -y openssl
 apt-get install -qq -y software-properties-common
