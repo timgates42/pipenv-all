@@ -11,7 +11,7 @@ echo "${PYTHONVERS}"
 apt-get update
 apt-get install -qq -y build-essential
 apt-get install -qq -y \
-  python2 python2-pip python2-dev \
+  python python-pip python-dev \
   python3 python3-pip python3-dev
 python2.7 -m pip install --upgrade pip
 python2.7 -m pip install pipenv
