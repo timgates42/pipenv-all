@@ -19,35 +19,20 @@ python2.7 -m pip install pipenv
 python3.6 -m pip install --upgrade pip
 python3.6 -m pip install pipenv
 
-NODISTRO_PYTHONVERS=$( echo "${PYTHONVERS}" | sed 's/python2[.]7/ /;s/python3[.]6//' )
+NODISTRO_PYTHONVERS=$( echo "${PYTHONVERS}" | sed 's/2[.]7/ /;s/3[.]6/ /' )
 # Now try deadsnakes
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends openssl
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends software-properties-common
 add-apt-repository ppa:deadsnakes
 add-apt-repository ppa:pypy/ppa
 apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends ${NODISTRO_PYTHONVERS}
-
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends curl
-DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends libffi-dev
-
 for PYVER in ${NODISTRO_PYTHONVERS} ; do
-  DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends ${PYVER}-dev
-  if [[ "${PYVER}" =~ python[0-9][.][0-9] ]] ; then
-    SHORTPY="$(echo "${PYVER}" | sed s/python//)"
-    if ! curl --fail "https://bootstrap.pypa.io/${SHORTPY}/get-pip.py" -o get-pip.py ; then
-      curl --fail https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    fi
-  else
+  DEBIAN_FRONTEND=noninteractive apt-get install -qq -y \
+      --no-install-recommends python${PYVER} python${PYVER}-dev
+  if ! curl --fail "https://bootstrap.pypa.io/${PYVER}/get-pip.py" -o get-pip.py ; then
     curl --fail https://bootstrap.pypa.io/get-pip.py -o get-pip.py
   fi
-  "${PYVER}" get-pip.py
-  case "${PYVER}" in
-  python2.6)
-    pip2.6 install pipenv
-    ;;
-  *)
-    "${PYVER}" -m pip install pipenv
-    ;;
-  esac
+  "python${PYVER}" get-pip.py
+  "pip${PYVER}" install pipenv
 done
