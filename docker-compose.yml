@@ -4,7 +4,10 @@ services:
   # Service image
   app:
     image: pipenv-all:latest
-    build: app
+    build:
+      context: app
+      args:
+        PYTHONVERS: $PYTHONVERS
     volumes:
       - type: bind
         source: .
