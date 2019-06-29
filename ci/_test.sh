@@ -8,6 +8,6 @@ BASEDIR="$( dirname "${THISDIR}" )"
 for PYVER in ${PYTHONVERS} ; do
     mkdir "${BASEDIR}/${PYVER}"
     cd "${BASEDIR}/${PYVER}"
-    "pipenv${PYVER}" --python "${PYVER}"
+    "python${PYVER}" -m pipenv --python "${PYVER}"
 done
 echo 'Testing Complete'
