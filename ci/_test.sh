@@ -6,8 +6,9 @@ THISDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BASEDIR="$( dirname "${THISDIR}" )"
 
 for PYVER in ${PYTHONVERS} ; do
-    mkdir "${BASEDIR}/${PYVER}"
-    cd "${BASEDIR}/${PYVER}"
+    rm -rf "${BASEDIR}/templates/${PYVER}"
+    mkdir -p "${BASEDIR}/templates/${PYVER}"
+    cd "${BASEDIR}/templates/${PYVER}"
     "python${PYVER}" -m pipenv --python "${PYVER}"
 done
 echo 'Testing Complete'
