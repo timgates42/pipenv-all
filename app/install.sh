@@ -12,8 +12,8 @@ apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends apt-utils
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends build-essential
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends \
-  python3 python3-pip python3-dev python3-setuptools
-python3.6 -m pip install --no-cache-dir --upgrade pip
+  python3 python3-pip python3-dev
+python3.6 -m pip install --no-cache-dir --upgrade pip setuptools
 python3.6 -m pip install --no-cache-dir pipenv
 
 NODISTRO_PYTHONVERS=$( echo "${PYTHONVERS}" | sed 's/2[.]7/ /;s/3[.]6/ /' )
