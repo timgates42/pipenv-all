@@ -14,8 +14,6 @@ DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends bu
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends \
   python python-pip python-dev \
   python3 python3-pip python3-dev
-python2.7 -m pip install --upgrade pip
-python2.7 -m pip install pipenv
 python3.6 -m pip install --upgrade pip
 python3.6 -m pip install pipenv
 
