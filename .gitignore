@@ -105,3 +105,6 @@ venv.bak/
 
 # pipenv
 .local
+
+# IDE
+.idea
