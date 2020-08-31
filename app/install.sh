@@ -12,14 +12,11 @@ apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends apt-utils
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends build-essential
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends \
-  python python-pip python-dev \
   python3 python3-pip python3-dev
-python2.7 -m pip install --upgrade pip
-python2.7 -m pip install pipenv
-python3.6 -m pip install --upgrade pip
-python3.6 -m pip install pipenv
+python3.8 -m pip install --upgrade pip
+python3.8 -m pip install pipenv
 
-NODISTRO_PYTHONVERS=$( echo "${PYTHONVERS}" | sed 's/2[.]7/ /;s/3[.]6/ /' )
+NODISTRO_PYTHONVERS=$( echo "${PYTHONVERS}" | sed 's/3[.]8/ /' )
 # Now try deadsnakes
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends openssl
 DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends software-properties-common
