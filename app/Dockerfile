@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 ARG PYTHONVERS
 ENV PYTHONVERS $PYTHONVERS
 COPY install.sh /build/install.sh
